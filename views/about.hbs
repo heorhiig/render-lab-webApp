@@ -1,24 +1,36 @@
 {{> menu id="about"}}
 
-<div class="class="ui left aligned middle aligned segment"">
-  <div class="ui centered card">
-    <div class="image">
-      <img src="/stevie.jpg">
+<section class="ui left aligned middle aligned segment cards">
+
+  <h2>About the Playlist App</h2>
+
+   {{#unless emps }}
+  <p>
+    More information about the app
+  </p>
+  {{/unless}}
+
+{{#each emps}}
+<div class="ui centered card">
+  <div class="image">
+    <img src="{{image}}">
+  </div>
+  <div class="content">
+    <a class="header">{{fullname}}</a>
+    <div class="meta">
+      <span class="date">Joined in {{joined}}</span>
     </div>
-    <div class="content">
-      <a class="header">{{info.employee.fullname}}</a>
-      <div class="meta">
-        <span class="date">Joined in {{info.employee.joined}}</span>
-      </div>
-      <div class="description">
-          is an {{info.employee.job}} living in {{info.employee.city}}.
-      </div>
-    </div>
-    <div class="extra content">
-      <a>
-        <i class="user icon"></i>
-          contacts
-      </a>
+    <div class="description">
+      {{name}} is an {{job}} living in {{city}}.
     </div>
   </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      {{mates}} contacts
+    </a>
+  </div>
 </div>
+ {{/each}}
+
+</section>
