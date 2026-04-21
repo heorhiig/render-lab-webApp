@@ -5,11 +5,11 @@ import JsonStore from './json-store.js';
 
 const empStore = {
 
-  store: new JsonStore('./models/emp-store.json', { employee: {} }),
+  store: new JsonStore('./models/emp-store.json', { employee: [] }),
   collection: 'employees',
 
 
-  getEmpInfo() {
+  getEmployees() {
     return this.store.findAll(this.collection);
   },
 
