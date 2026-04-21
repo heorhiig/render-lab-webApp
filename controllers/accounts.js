@@ -30,11 +30,13 @@ const accounts = {
   register(request, response) {
     const user = request.body;
     user.id = uuidv4();
-    userStore.addUser(user);
-    logger.info("registering" + user.email);
-    response.cookie("playlist", user.email);
-    logger.info("logging in" + user.email);
-    response.redirect("/start");
+    userStore.addUser(user, request.files.picture, function() {
+      logger.info("registering" + user.email);
+      response.cookie("playlist", user.email);
+      logger.info("logging in" + user.email);
+      response.redirect("/start");
+    }
+    ); 
   },
   authenticate(request, response) {
     const user = userStore.getUserByEmail(request.body.email);

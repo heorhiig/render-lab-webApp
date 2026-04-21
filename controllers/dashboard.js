@@ -64,7 +64,7 @@ const dashboard = {
     const newPlaylist = {
       userid: loggedInUser.id,
       id: uuidv4(),
-      title: request.body.title,
+      title: request.body.title,  
       rating: parseInt(request.body.rating),
       songs: [],
       date: timestamp
